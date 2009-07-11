@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		161ED76310072BC500B7334C /* WeekSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED76210072BC500B7334C /* WeekSelection.m */; };
+		161ED76A10072C2400B7334C /* WeekSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 161ED76910072C2400B7334C /* WeekSelectionView.xib */; };
+		161ED76E10072C7700B7334C /* WeekSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED76D10072C7700B7334C /* WeekSelectionViewController.m */; };
+		161ED78810072F8D00B7334C /* TimeEntries.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED78510072F8D00B7334C /* TimeEntries.m */; };
+		161ED78910072F8D00B7334C /* DayEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED78710072F8D00B7334C /* DayEntry.m */; };
+		161ED78B10072FE100B7334C /* WeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 161ED78A10072FE100B7334C /* WeekView.xib */; };
+		161ED78D10072FFE00B7334C /* DayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 161ED78C10072FFE00B7334C /* DayView.xib */; };
+		161ED7901007301E00B7334C /* WeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED78F1007301E00B7334C /* WeekViewController.m */; };
+		161ED7931007302B00B7334C /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED7921007302B00B7334C /* DayViewController.m */; };
+		161ED79D1007310500B7334C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 161ED79C1007310500B7334C /* libsqlite3.0.dylib */; };
+		161ED7DE1007347C00B7334C /* Week.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED7DD1007347C00B7334C /* Week.m */; };
+		161ED8F8100746C000B7334C /* WeekTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED8F7100746C000B7334C /* WeekTableViewCell.m */; };
+		161ED9C210075C1800B7334C /* DatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 161ED9C110075C1800B7334C /* DatePicker.xib */; };
+		161ED9C610075C3200B7334C /* DatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161ED9C510075C3200B7334C /* DatePickerController.m */; };
+		161EDCE21008455200B7334C /* time.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 161EDCE11008455200B7334C /* time.sqlite */; };
+		161EDDC710085D8E00B7334C /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 161EDDC610085D8E00B7334C /* DateHelper.m */; };
+		16753E05100884F70073B1BF /* SelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16753E04100884F70073B1BF /* SelectionTableViewCell.m */; };
+		16753E2A100887620073B1BF /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16753E29100887620073B1BF /* InfoTableViewCell.m */; };
+		1D3623260D0F684500981E51 /* TimecardAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TimecardAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		161ED76110072BC500B7334C /* WeekSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekSelection.h; sourceTree = "<group>"; };
+		161ED76210072BC500B7334C /* WeekSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekSelection.m; sourceTree = "<group>"; };
+		161ED76910072C2400B7334C /* WeekSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekSelectionView.xib; sourceTree = "<group>"; };
+		161ED76C10072C7700B7334C /* WeekSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekSelectionViewController.h; sourceTree = "<group>"; };
+		161ED76D10072C7700B7334C /* WeekSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekSelectionViewController.m; sourceTree = "<group>"; };
+		161ED78410072F8D00B7334C /* TimeEntries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeEntries.h; path = Classes/TimeEntries.h; sourceTree = SOURCE_ROOT; };
+		161ED78510072F8D00B7334C /* TimeEntries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeEntries.m; path = Classes/TimeEntries.m; sourceTree = SOURCE_ROOT; };
+		161ED78610072F8D00B7334C /* DayEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayEntry.h; sourceTree = "<group>"; };
+		161ED78710072F8D00B7334C /* DayEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayEntry.m; sourceTree = "<group>"; };
+		161ED78A10072FE100B7334C /* WeekView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekView.xib; sourceTree = "<group>"; };
+		161ED78C10072FFE00B7334C /* DayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayView.xib; sourceTree = "<group>"; };
+		161ED78E1007301E00B7334C /* WeekViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekViewController.h; sourceTree = "<group>"; };
+		161ED78F1007301E00B7334C /* WeekViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekViewController.m; sourceTree = "<group>"; };
+		161ED7911007302B00B7334C /* DayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayViewController.h; sourceTree = "<group>"; };
+		161ED7921007302B00B7334C /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayViewController.m; sourceTree = "<group>"; };
+		161ED79C1007310500B7334C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = ../../../../../Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.0.sdk/usr/lib/libsqlite3.0.dylib; sourceTree = SOURCE_ROOT; };
+		161ED7DC1007347C00B7334C /* Week.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Week.h; sourceTree = "<group>"; };
+		161ED7DD1007347C00B7334C /* Week.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Week.m; sourceTree = "<group>"; };
+		161ED8F6100746C000B7334C /* WeekTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekTableViewCell.h; path = Classes/WeekTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		161ED8F7100746C000B7334C /* WeekTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekTableViewCell.m; path = Classes/WeekTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		161ED9C110075C1800B7334C /* DatePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePicker.xib; sourceTree = SOURCE_ROOT; };
+		161ED9C410075C3200B7334C /* DatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerController.h; path = Classes/DatePickerController.h; sourceTree = SOURCE_ROOT; };
+		161ED9C510075C3200B7334C /* DatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerController.m; path = Classes/DatePickerController.m; sourceTree = SOURCE_ROOT; };
+		161EDCE11008455200B7334C /* time.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = time.sqlite; sourceTree = SOURCE_ROOT; };
+		161EDDC510085D8E00B7334C /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
+		161EDDC610085D8E00B7334C /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
+		16753E03100884F70073B1BF /* SelectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectionTableViewCell.h; path = Classes/SelectionTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		16753E04100884F70073B1BF /* SelectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectionTableViewCell.m; path = Classes/SelectionTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		16753E28100887620073B1BF /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoTableViewCell.h; path = Classes/InfoTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		16753E29100887620073B1BF /* InfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = InfoTableViewCell.m; path = Classes/InfoTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* TimecardAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimecardAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* TimecardAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimecardAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Timecard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timecard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* Timecard_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timecard_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Timecard-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Timecard-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				161ED79D1007310500B7334C /* libsqlite3.0.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				161ED9C310075C1E00B7334C /* DatePicker */,
+				161ED8E51007468200B7334C /* WeekSelectionView */,
+				161ED8E41007466D00B7334C /* DayView */,
+				161ED8E31007465B00B7334C /* WeekView */,
+				161ED78410072F8D00B7334C /* TimeEntries.h */,
+				161ED78510072F8D00B7334C /* TimeEntries.m */,
+				1D3623240D0F684500981E51 /* TimecardAppDelegate.h */,
+				1D3623250D0F684500981E51 /* TimecardAppDelegate.m */,
+				161EDDC510085D8E00B7334C /* DateHelper.h */,
+				161EDDC610085D8E00B7334C /* DateHelper.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		161ED8E31007465B00B7334C /* WeekView */ = {
+			isa = PBXGroup;
+			children = (
+				161ED8F6100746C000B7334C /* WeekTableViewCell.h */,
+				161ED8F7100746C000B7334C /* WeekTableViewCell.m */,
+				161ED7DC1007347C00B7334C /* Week.h */,
+				161ED7DD1007347C00B7334C /* Week.m */,
+				161ED78E1007301E00B7334C /* WeekViewController.h */,
+				161ED78F1007301E00B7334C /* WeekViewController.m */,
+			);
+			name = WeekView;
+			sourceTree = "<group>";
+		};
+		161ED8E41007466D00B7334C /* DayView */ = {
+			isa = PBXGroup;
+			children = (
+				16753E28100887620073B1BF /* InfoTableViewCell.h */,
+				16753E29100887620073B1BF /* InfoTableViewCell.m */,
+				161ED78610072F8D00B7334C /* DayEntry.h */,
+				161ED78710072F8D00B7334C /* DayEntry.m */,
+				161ED7911007302B00B7334C /* DayViewController.h */,
+				161ED7921007302B00B7334C /* DayViewController.m */,
+			);
+			name = DayView;
+			sourceTree = "<group>";
+		};
+		161ED8E51007468200B7334C /* WeekSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				16753E03100884F70073B1BF /* SelectionTableViewCell.h */,
+				16753E04100884F70073B1BF /* SelectionTableViewCell.m */,
+				161ED76C10072C7700B7334C /* WeekSelectionViewController.h */,
+				161ED76D10072C7700B7334C /* WeekSelectionViewController.m */,
+				161ED76110072BC500B7334C /* WeekSelection.h */,
+				161ED76210072BC500B7334C /* WeekSelection.m */,
+			);
+			name = WeekSelectionView;
+			sourceTree = "<group>";
+		};
+		161ED9C310075C1E00B7334C /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				161ED9C410075C3200B7334C /* DatePickerController.h */,
+				161ED9C510075C3200B7334C /* DatePickerController.m */,
+			);
+			name = DatePicker;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Timecard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* Timecard_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				161EDCE11008455200B7334C /* time.sqlite */,
+				161ED9C110075C1800B7334C /* DatePicker.xib */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* Timecard-Info.plist */,
+				161ED76910072C2400B7334C /* WeekSelectionView.xib */,
+				161ED78A10072FE100B7334C /* WeekView.xib */,
+				161ED78C10072FFE00B7334C /* DayView.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				161ED79C1007310500B7334C /* libsqlite3.0.dylib */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Timecard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Timecard" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Timecard;
+			productName = Timecard;
+			productReference = 1D6058910D05DD3D006BFB54 /* Timecard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Timecard" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Timecard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				161ED76A10072C2400B7334C /* WeekSelectionView.xib in Resources */,
+				161ED78B10072FE100B7334C /* WeekView.xib in Resources */,
+				161ED78D10072FFE00B7334C /* DayView.xib in Resources */,
+				161ED9C210075C1800B7334C /* DatePicker.xib in Resources */,
+				161EDCE21008455200B7334C /* time.sqlite in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* TimecardAppDelegate.m in Sources */,
+				161ED76310072BC500B7334C /* WeekSelection.m in Sources */,
+				161ED76E10072C7700B7334C /* WeekSelectionViewController.m in Sources */,
+				161ED78810072F8D00B7334C /* TimeEntries.m in Sources */,
+				161ED78910072F8D00B7334C /* DayEntry.m in Sources */,
+				161ED7901007301E00B7334C /* WeekViewController.m in Sources */,
+				161ED7931007302B00B7334C /* DayViewController.m in Sources */,
+				161ED7DE1007347C00B7334C /* Week.m in Sources */,
+				161ED8F8100746C000B7334C /* WeekTableViewCell.m in Sources */,
+				161ED9C610075C3200B7334C /* DatePickerController.m in Sources */,
+				161EDDC710085D8E00B7334C /* DateHelper.m in Sources */,
+				16753E05100884F70073B1BF /* SelectionTableViewCell.m in Sources */,
+				16753E2A100887620073B1BF /* InfoTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Timecard_Prefix.pch;
+				INFOPLIST_FILE = "Timecard-Info.plist";
+				PRODUCT_NAME = Timecard;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Timecard_Prefix.pch;
+				INFOPLIST_FILE = "Timecard-Info.plist";
+				PRODUCT_NAME = Timecard;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.0;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Timecard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Timecard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

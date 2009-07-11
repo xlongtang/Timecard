@@ -1,0 +1,12 @@
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.m: In function '-[DayEntry breakHours]':
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.m:64: warning: conflicting types for '-(int)breakHours'
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.h:24: warning: previous declaration of '-(double)breakHours'
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.m: In function '-[DayEntry breakMinutes]':
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.m:67: warning: conflicting types for '-(int)breakMinutes'
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.h:25: warning: previous declaration of '-(double)breakMinutes'
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.m: In function '-[DayEntry setBreakHours:]':
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.m:71: warning: conflicting types for '-(void)setBreakHours:(int)value'
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.h:29: warning: previous declaration of '-(void)setBreakHours:(double)value'
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.m: In function '-[DayEntry setBreakMinutes:]':
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.m:76: warning: conflicting types for '-(void)setBreakMinutes:(int)value'
+/Users/jacob/Documents/cocoa/Timecard/Classes/DayEntry.h:30: warning: previous declaration of '-(void)setBreakMinutes:(double)value'
