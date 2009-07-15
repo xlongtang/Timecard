@@ -13,9 +13,13 @@
 	IBOutlet UITableView* table;
 	IBOutlet UIToolbar* toolbar;
 	WeekSelection* week;
+	IBOutlet UIBarButtonItem* settingsButton;
 }
 
 @property (retain) UITableView* table;
 @property (retain) UIToolbar* toolbar;
+@property (retain) UIBarButtonItem* settingsButton;
+
+- (IBAction)doSettings:(id)sender;
 
 @end

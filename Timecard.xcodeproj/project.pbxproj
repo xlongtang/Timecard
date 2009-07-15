@@ -25,6 +25,11 @@
 		161EDDC710085D8E00B7334C /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 161EDDC610085D8E00B7334C /* DateHelper.m */; };
 		16753E05100884F70073B1BF /* SelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16753E04100884F70073B1BF /* SelectionTableViewCell.m */; };
 		16753E2A100887620073B1BF /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16753E29100887620073B1BF /* InfoTableViewCell.m */; };
+		1687B1101009AD49009EA9FB /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1687B10F1009AD49009EA9FB /* SettingsView.xib */; };
+		1687B1141009ADC2009EA9FB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1687B1131009ADC2009EA9FB /* SettingsViewController.m */; };
+		1687B1171009AECA009EA9FB /* SettingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1687B1161009AECA009EA9FB /* SettingInfo.m */; };
+		1687B1881009B8B4009EA9FB /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1687B1871009B8B4009EA9FB /* SettingTableViewCell.m */; };
+		16CDF4AF100E01A3002B35C3 /* timeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 16CDF4AE100E01A3002B35C3 /* timeicon.png */; };
 		1D3623260D0F684500981E51 /* TimecardAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TimecardAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -64,6 +69,14 @@
 		16753E04100884F70073B1BF /* SelectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectionTableViewCell.m; path = Classes/SelectionTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		16753E28100887620073B1BF /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoTableViewCell.h; path = Classes/InfoTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		16753E29100887620073B1BF /* InfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = InfoTableViewCell.m; path = Classes/InfoTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		1687B10F1009AD49009EA9FB /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		1687B1121009ADC2009EA9FB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1687B1131009ADC2009EA9FB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		1687B1151009AECA009EA9FB /* SettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfo.h; sourceTree = "<group>"; };
+		1687B1161009AECA009EA9FB /* SettingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingInfo.m; sourceTree = "<group>"; };
+		1687B1861009B8B4009EA9FB /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingTableViewCell.h; path = Classes/SettingTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		1687B1871009B8B4009EA9FB /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingTableViewCell.m; path = Classes/SettingTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		16CDF4AE100E01A3002B35C3 /* timeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeicon.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TimecardAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimecardAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* TimecardAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimecardAppDelegate.m; sourceTree = "<group>"; };
@@ -94,6 +107,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1687B10E1009ACE0009EA9FB /* SettingsView */,
 				161ED9C310075C1E00B7334C /* DatePicker */,
 				161ED8E51007468200B7334C /* WeekSelectionView */,
 				161ED8E41007466D00B7334C /* DayView */,
@@ -156,6 +170,19 @@
 			name = DatePicker;
 			sourceTree = "<group>";
 		};
+		1687B10E1009ACE0009EA9FB /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				1687B1861009B8B4009EA9FB /* SettingTableViewCell.h */,
+				1687B1871009B8B4009EA9FB /* SettingTableViewCell.m */,
+				1687B1121009ADC2009EA9FB /* SettingsViewController.h */,
+				1687B1131009ADC2009EA9FB /* SettingsViewController.m */,
+				1687B1151009AECA009EA9FB /* SettingInfo.h */,
+				1687B1161009AECA009EA9FB /* SettingInfo.m */,
+			);
+			name = SettingsView;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +215,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16CDF4AE100E01A3002B35C3 /* timeicon.png */,
 				161EDCE11008455200B7334C /* time.sqlite */,
 				161ED9C110075C1800B7334C /* DatePicker.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -195,6 +223,7 @@
 				161ED76910072C2400B7334C /* WeekSelectionView.xib */,
 				161ED78A10072FE100B7334C /* WeekView.xib */,
 				161ED78C10072FFE00B7334C /* DayView.xib */,
+				1687B10F1009AD49009EA9FB /* SettingsView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -265,6 +294,8 @@
 				161ED78D10072FFE00B7334C /* DayView.xib in Resources */,
 				161ED9C210075C1800B7334C /* DatePicker.xib in Resources */,
 				161EDCE21008455200B7334C /* time.sqlite in Resources */,
+				1687B1101009AD49009EA9FB /* SettingsView.xib in Resources */,
+				16CDF4AF100E01A3002B35C3 /* timeicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +320,9 @@
 				161EDDC710085D8E00B7334C /* DateHelper.m in Sources */,
 				16753E05100884F70073B1BF /* SelectionTableViewCell.m in Sources */,
 				16753E2A100887620073B1BF /* InfoTableViewCell.m in Sources */,
+				1687B1141009ADC2009EA9FB /* SettingsViewController.m in Sources */,
+				1687B1171009AECA009EA9FB /* SettingInfo.m in Sources */,
+				1687B1881009B8B4009EA9FB /* SettingTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

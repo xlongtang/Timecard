@@ -9,11 +9,12 @@
 #import "WeekSelectionViewController.h"
 #import "WeekViewController.h"
 #import "SelectionTableViewCell.h"
+#import "SettingsViewController.h"
 #import "DateHelper.h"
 
 @implementation WeekSelectionViewController
 
-@synthesize toolbar,table;
+@synthesize toolbar,table,settingsButton;
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
@@ -42,6 +43,15 @@
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (IBAction)doSettings:(id)sender {
+	NSLog(@"settings...");
+	SettingsViewController *controller = [[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:nil];
+	controller.title = @"Settings";
+	[self.navigationController pushViewController:controller animated:YES];
+	[controller release];
+	
 }
 
 #pragma mark Table view methods

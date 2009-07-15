@@ -18,12 +18,14 @@
 	// Work out start week
 	start = [DateHelper backToSunday: startDate];
 	NSDate* dbStart = [[TimeEntries instance] getFirstWeek];
-	start = [start earlierDate: dbStart];
+	if(dbStart != nil)
+		start = [start earlierDate: dbStart];
 
 	// Work out end week
 	end = [DateHelper addWeek: [DateHelper backToSunday: endDate]];
 	NSDate* dbEnd = [[TimeEntries instance] getLastWeek];
-	end = [end laterDate: dbEnd];
+	if(dbEnd != nil)
+		end = [end laterDate: dbEnd];
 	
 	// Work out how many weeks are we displaying
 	int count = [DateHelper daysBetween: start end: end];

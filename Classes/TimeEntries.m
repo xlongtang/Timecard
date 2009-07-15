@@ -73,13 +73,15 @@ static TimeEntries* timentries_instance = nil;
 	
 	NSDate* first = nil;
     if(sqlite3_step(firstWeek) == SQLITE_ROW) {
-		first = [[NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(firstWeek, 0)] retain];
-    } else {
-		first = [[NSDate alloc] init];
-	}
+		int dateValue = sqlite3_column_int(firstWeek, 0);
+		if(dateValue != 0)
+			first = [[NSDate dateWithTimeIntervalSince1970: dateValue] retain];
+    }
 	
     // Because we want to reuse the statement, we "reset" it instead of "finalizing" it.
     sqlite3_reset(firstWeek);
+	if(first == nil)
+		return nil;
 	return [DateHelper backToSunday: first];
 }
 
@@ -93,13 +95,15 @@ static TimeEntries* timentries_instance = nil;
 	
 	NSDate* first = nil;
     if(sqlite3_step(lastWeek) == SQLITE_ROW) {
-		first = [[NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(lastWeek, 0)] retain];
-    } else {
-		first = [[NSDate alloc] init];
-	}
-	
+		int dateValue = sqlite3_column_int(lastWeek, 0);
+		if(dateValue != 0)
+			first = [[NSDate dateWithTimeIntervalSince1970: dateValue] retain];
+    }
+
     // Because we want to reuse the statement, we "reset" it instead of "finalizing" it.
     sqlite3_reset(lastWeek);
+	if(first == nil)
+		return nil;
 	return [DateHelper backToSunday: first];
 }
 
