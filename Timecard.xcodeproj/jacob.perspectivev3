@@ -270,11 +270,7 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>1687B10E1009ACE0009EA9FB</string>
-								<string>161ED9C310075C1E00B7334C</string>
-								<string>161ED8E51007468200B7334C</string>
-								<string>161ED8E41007466D00B7334C</string>
 								<string>161ED8E31007465B00B7334C</string>
-								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
@@ -282,14 +278,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>23</integer>
-									<integer>19</integer>
+									<integer>6</integer>
+									<integer>2</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 97}, {185, 562}}</string>
+							<string>{{0, 0}, {185, 562}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -324,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>161ED7A7100732C100B7334C</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>DayEntry.m</string>
+								<string>SettingsViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -332,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>161ED7A8100732C100B7334C</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>DayEntry.m</string>
+										<string>SettingsViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>16C2D5A710175877004527F3</string>
+										<string>16C2D600101760C9004527F3</string>
 										<key>history</key>
 										<array>
 											<string>161EDC2210083ED500B7334C</string>
@@ -348,12 +344,8 @@
 											<string>16C2D39B1017395F004527F3</string>
 											<string>16C2D42410174354004527F3</string>
 											<string>16C2D42510174354004527F3</string>
-											<string>16C2D42610174354004527F3</string>
 											<string>16C2D42810174354004527F3</string>
-											<string>16C2D4561017445E004527F3</string>
-											<string>16C2D4571017445E004527F3</string>
 											<string>16C2D4581017445E004527F3</string>
-											<string>16C2D45A1017445E004527F3</string>
 											<string>16C2D45B1017445E004527F3</string>
 											<string>16C2D473101746B4004527F3</string>
 											<string>16C2D474101746B4004527F3</string>
@@ -364,14 +356,18 @@
 											<string>16C2D4AA10174B07004527F3</string>
 											<string>16C2D4AB10174B07004527F3</string>
 											<string>16C2D53F1017543B004527F3</string>
-											<string>16C2D54E10175528004527F3</string>
 											<string>16C2D56910175658004527F3</string>
 											<string>16C2D573101756AF004527F3</string>
 											<string>16C2D583101757C2004527F3</string>
 											<string>16C2D584101757C2004527F3</string>
-											<string>16C2D5A010175860004527F3</string>
 											<string>16C2D5A110175860004527F3</string>
-											<string>16C2D5A210175860004527F3</string>
+											<string>16C2D5AE10175C01004527F3</string>
+											<string>16C2D5B610175D08004527F3</string>
+											<string>16C2D5DA10175FB2004527F3</string>
+											<string>16C2D5E71017601A004527F3</string>
+											<string>16C2D5FB101760C9004527F3</string>
+											<string>16C2D5FC101760C9004527F3</string>
+											<string>16C2D5FD101760C9004527F3</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -593,6 +589,15 @@
 											<string>16C2D589101757C2004527F3</string>
 											<string>16C2D5A310175860004527F3</string>
 											<string>16C2D5A410175860004527F3</string>
+											<string>16C2D5B110175C01004527F3</string>
+											<string>16C2D5B210175C01004527F3</string>
+											<string>16C2D5B810175D08004527F3</string>
+											<string>16C2D5B910175D08004527F3</string>
+											<string>16C2D5DC10175FB2004527F3</string>
+											<string>16C2D5E91017601A004527F3</string>
+											<string>16C2D5EA1017601A004527F3</string>
+											<string>16C2D5FE101760C9004527F3</string>
+											<string>16C2D5FF101760C9004527F3</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

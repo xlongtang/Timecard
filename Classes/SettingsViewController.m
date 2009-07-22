@@ -46,7 +46,7 @@
 	setting = [[SettingInfo alloc] init];
 	setting.label = @"overtime";
 	setting.type = 3;
-	setting.boolValue = NO;
+	setting.boolValue = [[[TimeEntries instance] getPreference: @"overtime"] boolValue];;
 	[settings addObject: setting];
 
 	setting = [[SettingInfo alloc] init];

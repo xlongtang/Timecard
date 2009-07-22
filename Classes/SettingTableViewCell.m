@@ -29,8 +29,9 @@
 			[myContentView addSubview:self.textField];
 			[self.textField release];
 		} else if(setting.type == 3) {
-			self.switchField =  [[UISwitch alloc] initWithFrame:CGRectZero];
-			//self.textField.text = [NSString stringWithFormat: @"%.2f", setting.doubleValue];			
+			self.switchField = [[UISwitch alloc] initWithFrame:CGRectZero];
+			self.switchField.on = setting.boolValue;
+			[self.switchField addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
 			[myContentView addSubview:self.switchField];
 			[self.switchField release];
 		} else if(setting.type == 2) { // 2=Text field
@@ -143,8 +144,7 @@
 	NSLog(@"Editing finished on %@ new value=%@", setting.label, result);
 	[textField resignFirstResponder];
 	self.setting.doubleValue = [result doubleValue];
-	[[TimeEntries instance] setPreference: setting.label value: result];
-	
+	[[TimeEntries instance] setPreference: setting.label value: result];	
 }
 
 - (BOOL)textField:(UITextField *)aTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -168,6 +168,13 @@
 	}
 	NSLog(@"rejected %d",c);
 	return NO;
+}
+
+- (void)switchAction:(id)sender {	
+	NSString* result = switchField.on?@"YES":@"NO";
+	NSLog(@"Switch %@ toggled to %@", setting.label, result);
+	setting.boolValue = switchField.on;
+	[[TimeEntries instance] setPreference: setting.label value: result];
 }
 
 
