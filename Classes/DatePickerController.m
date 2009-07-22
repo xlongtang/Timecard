@@ -26,6 +26,7 @@
 	
 	UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemSave target:self action:@selector(save:)];
 	self.navigationItem.rightBarButtonItem = save;
+	[save release];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -117,6 +118,10 @@
 }
 
 - (void)dealloc {
+	datePicker = nil;
+	datePickerView = nil;
+	myPickerView = nil;
+	dayEntry = nil;
     [super dealloc];
 }
 

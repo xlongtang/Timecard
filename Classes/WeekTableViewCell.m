@@ -81,9 +81,9 @@
 
 
 - (void)dealloc {
-	//[nameLabel dealloc];
-	//[authorLabel dealloc];
-	//[dateLabel dealloc];
+	nameLabel = nil;
+	authorLabel = nil;
+	dateLabel = nil;
 	[super dealloc];
 }
 

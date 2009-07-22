@@ -51,7 +51,7 @@
 
 -(NSString*) weekString {
 	if(end==nil) return @"";	
-	NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
+	NSDateFormatter *localTime = [[[NSDateFormatter alloc] init] autorelease];
 	[localTime setDateStyle: NSDateFormatterShortStyle];
 	return [localTime stringFromDate: start];
 }
@@ -79,7 +79,7 @@
 }
 
 -(NSString*) name {
-	NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
+	NSDateFormatter *localTime = [[[NSDateFormatter alloc] init] autorelease];
 	[localTime setDateStyle: NSDateFormatterLongStyle];
 	return [localTime stringFromDate: start];
 }

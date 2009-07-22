@@ -19,7 +19,7 @@
 		UIView *myContentView = self.contentView;
 		self.setting = aSetting;
 		
-		if(setting.type == 4) {
+		if(setting.type == 4) {  // 4=Decimal field
 			self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
 			self.textField.text = [NSString stringWithFormat: @"%.2f", setting.doubleValue];	
 			self.textField.delegate = self;
@@ -33,7 +33,7 @@
 			//self.textField.text = [NSString stringWithFormat: @"%.2f", setting.doubleValue];			
 			[myContentView addSubview:self.switchField];
 			[self.switchField release];
-		} else if(setting.type == 2) {
+		} else if(setting.type == 2) { // 2=Text field
 			self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
 			self.textField.text = setting.stringValue;			
 			self.textField.delegate = self;
@@ -112,9 +112,11 @@
 
 
 - (void)dealloc {
-	//[nameLabel dealloc];
-	//[authorLabel dealloc];
-	//[dateLabel dealloc];
+	label = nil;
+	value = nil;
+	textField = nil;
+	switchField = nil;
+	setting = nil;
 	[super dealloc];
 }
 /*
@@ -127,13 +129,45 @@
 }
 */
 
+- (void)textFieldDidEndEditing:(UITextField *)aTextField {
+	[self saveSetting];
+}
+
 -(BOOL)textFieldShouldReturn: (UITextField *)theTextField {
-	NSString* result = textField.text;
-	NSLog(@"Editing finished %@", result);
-	//[textField setEditing: FALSE animated: FALSE];
-	[theTextField resignFirstResponder];
-	self.setting.doubleValue = [result doubleValue];
+	[self saveSetting];
 	return YES;
+}
+
+-(void)saveSetting {
+	NSString* result = textField.text;
+	NSLog(@"Editing finished on %@ new value=%@", setting.label, result);
+	[textField resignFirstResponder];
+	self.setting.doubleValue = [result doubleValue];
+	[[TimeEntries instance] setPreference: setting.label value: result];
+	
+}
+
+- (BOOL)textField:(UITextField *)aTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+	if(string.length==0) return YES;
+
+	// Only numbers need validating
+	if(self.setting.type!=4) return YES;
+
+	// Check its a valid number
+	char c=0;
+	for(int i=0;i<[string length];i++) {
+		c=[string characterAtIndex: i];
+		if(c>='0' && c<='9')
+			return YES;
+		else if(c=='.' && [aTextField.text rangeOfString:@"."].location==NSNotFound)
+			return YES;
+		else {
+			NSLog(@"rejected %d",c);
+			return NO;
+		}
+	}
+	NSLog(@"rejected %d",c);
+	return NO;
 }
 
 

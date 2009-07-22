@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SettingInfo.h"
+#import "TimeEntries.h"
 
 @interface SettingTableViewCell : UITableViewCell<UITextFieldDelegate> {
 	UILabel* label;
@@ -19,6 +20,7 @@
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier setting:(SettingInfo*) aSetting;
 - (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold;
+-(void)saveSetting;
 
 @property (nonatomic, retain) UILabel *label;
 @property (nonatomic, retain) UILabel *value;

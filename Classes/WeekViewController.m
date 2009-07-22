@@ -10,6 +10,7 @@
 #import "DayViewController.h"
 #import "WeekTableViewCell.h"
 #import "DateHelper.h"
+#import "TimeEntries.h"
 
 @implementation WeekViewController
 
@@ -73,8 +74,27 @@
 		[cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
 		[cell setEditingAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
 	} else {
+		NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init]; 
+        [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+		
+		double pay = 0;
 		cell.nameLabel.text = [DateHelper hourStringLong: [week hours]];
-		//cell.authorLabel.text = @"$pay";
+		double payRate = [[[TimeEntries instance] getPreference: @"pay rate"] doubleValue];
+		BOOL overtime = [[[TimeEntries instance] getPreference: @"overtime"] boolValue];
+		if(overtime==YES) {
+			double overtimeRate = [[[TimeEntries instance] getPreference: @"overtime rate"] doubleValue];
+			double overtimeStart = [[[TimeEntries instance] getPreference: @"overtime start"] doubleValue];
+			if([week hours]>overtimeStart) {
+				pay=overtimeStart*payRate + ([week hours]-overtimeStart)*overtimeRate;
+			} else {
+				pay=[week hours]*payRate;
+			}			
+		} else {
+			pay=[week hours]*payRate;
+		}
+		NSString* payString = [formatter stringFromNumber: [NSNumber numberWithDouble: pay]];
+		cell.authorLabel.text = payString; //[DateHelper hourString: pay];
+		[formatter release];
 	}
 
     return cell;

@@ -75,7 +75,7 @@ static TimeEntries* timentries_instance = nil;
     if(sqlite3_step(firstWeek) == SQLITE_ROW) {
 		int dateValue = sqlite3_column_int(firstWeek, 0);
 		if(dateValue != 0)
-			first = [[NSDate dateWithTimeIntervalSince1970: dateValue] retain];
+			first = [NSDate dateWithTimeIntervalSince1970: dateValue];
     }
 	
     // Because we want to reuse the statement, we "reset" it instead of "finalizing" it.
@@ -97,7 +97,7 @@ static TimeEntries* timentries_instance = nil;
     if(sqlite3_step(lastWeek) == SQLITE_ROW) {
 		int dateValue = sqlite3_column_int(lastWeek, 0);
 		if(dateValue != 0)
-			first = [[NSDate dateWithTimeIntervalSince1970: dateValue] retain];
+			first = [NSDate dateWithTimeIntervalSince1970: dateValue];
     }
 
     // Because we want to reuse the statement, we "reset" it instead of "finalizing" it.
@@ -113,6 +113,7 @@ static TimeEntries* timentries_instance = nil;
 	NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
 	[localTime setDateStyle: NSDateFormatterShortStyle];
 	NSString* dateString = [localTime stringFromDate: date];
+	[localTime release];
 
     static char *sql = "select id,day,start,end,break_hours,break_minutes from time_entry where day=?";
     if (sqlite3_prepare_v2(database, sql, -1, &loadEntry, NULL) != SQLITE_OK) {
@@ -123,8 +124,8 @@ static TimeEntries* timentries_instance = nil;
 	DayEntry* entry = nil;
     if(sqlite3_step(loadEntry) == SQLITE_ROW) {
         entry = [[DayEntry alloc] initWithId: sqlite3_column_int(loadEntry, 0)
-									   start: [[NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(loadEntry, 2)] retain]
-										 end: [[NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(loadEntry, 3)] retain]
+									   start: [NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(loadEntry, 2)]
+										 end: [NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(loadEntry, 3)]
 								  breakHours: sqlite3_column_int(loadEntry, 4)
 								breakMinutes: sqlite3_column_int(loadEntry, 5)];
     }
@@ -141,6 +142,7 @@ static TimeEntries* timentries_instance = nil;
 	NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
 	[localTime setDateStyle: NSDateFormatterShortStyle];
 	NSString* dateString = [localTime stringFromDate: date];
+	[localTime release];
 	
     static char *sql = "select id,week,start,end,hours from week_entry where week=?";
     if (sqlite3_prepare_v2(database, sql, -1, &loadWeek, NULL) != SQLITE_OK) {
@@ -160,7 +162,7 @@ static TimeEntries* timentries_instance = nil;
     // Because we want to reuse the statement, we "reset" it instead of "finalizing" it.
     sqlite3_reset(loadWeek);
 	
-	return entry;
+	return [entry autorelease];
 }
 
 -(void) storeWeek: (Week*) week {
@@ -271,7 +273,7 @@ static TimeEntries* timentries_instance = nil;
     }
     sqlite3_bind_text(get_preference, 1, [name UTF8String], -1, SQLITE_TRANSIENT);
     if(sqlite3_step(get_preference)) {
-		value = [NSString stringWithUTF8String:(char *)sqlite3_column_text(get_preference, 1)];
+		value = [NSString stringWithUTF8String:(char *)sqlite3_column_text(get_preference, 0)];
 	} else {
         NSAssert1(0, @"Error: Problem reading preference from database with message '%s'.", sqlite3_errmsg(database));
 	}

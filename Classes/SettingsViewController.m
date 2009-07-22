@@ -40,7 +40,7 @@
 	setting = [[SettingInfo alloc] init];
 	setting.label = @"pay rate";
 	setting.type = 4;
-	setting.doubleValue = 29.05;
+	setting.doubleValue = [[[TimeEntries instance] getPreference: @"pay rate"] doubleValue];
 	[settings addObject: setting];
 	
 	setting = [[SettingInfo alloc] init];
@@ -52,25 +52,16 @@
 	setting = [[SettingInfo alloc] init];
 	setting.label = @"overtime rate";
 	setting.type = 4;
-	setting.doubleValue = 33.05;
+	setting.doubleValue = [[[TimeEntries instance] getPreference: @"overtime rate"] doubleValue];
 	[settings addObject: setting];
 
 	setting = [[SettingInfo alloc] init];
 	setting.label = @"overtime start";
 	setting.type = 4;
-	setting.doubleValue = 80;
+	setting.doubleValue = [[[TimeEntries instance] getPreference: @"overtime start"] doubleValue];
 	[settings addObject: setting];
 	
 }
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -86,6 +77,8 @@
 
 
 - (void)dealloc {
+	settings = nil;
+	table = nil;
     [super dealloc];
 }
 

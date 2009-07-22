@@ -19,10 +19,10 @@
 	
 	if([dayOfWeekComponent weekday]>1) {
 		[dayOfYearComponent setDay: 1-[dayOfWeekComponent weekday]];
-		date = [[cal dateByAddingComponents:dayOfYearComponent toDate:date options:0] retain];
+		date = [[[cal dateByAddingComponents:dayOfYearComponent toDate:date options:0] retain] autorelease];
 	}
 	
-	return date;
+	return [[date copy] autorelease];
 }
 
 +(NSDate*) addWeek: (NSDate*) date {
@@ -31,9 +31,9 @@
 	NSDateComponents *dayOfYearComponent = [cal components:(NSDayCalendarUnit) fromDate:date];
 	
 	[dayOfYearComponent setDay: 7];
-	date = [[cal dateByAddingComponents:dayOfYearComponent toDate:date options:0] retain];
+	date = [[[cal dateByAddingComponents:dayOfYearComponent toDate:date options:0] retain] autorelease];
 	
-	return date;
+	return [[date copy] autorelease];
 }
 
 +(NSDate*) addDay: (NSDate*) date days: (int) days {
@@ -42,9 +42,9 @@
 	NSDateComponents *dayOfYearComponent = [cal components:(NSDayCalendarUnit) fromDate:date];
 	
 	[dayOfYearComponent setDay: days];
-	date = [[cal dateByAddingComponents:dayOfYearComponent toDate:date options:0] retain];
+	date = [[[cal dateByAddingComponents:dayOfYearComponent toDate:date options:0] retain] autorelease];
 	
-	return date;
+	return [[date copy] autorelease];
 }
 
 +(int) daysBetween: (NSDate*) startDate end: (NSDate*) endDate {
@@ -81,10 +81,10 @@
 	
 	if(parts.second!=0) {
 		parts.second=-parts.second;
-		date = [[cal dateByAddingComponents:parts toDate:date options:0] retain];
+		date = [[[cal dateByAddingComponents:parts toDate:date options:0] retain] autorelease];
 	}
 	
-	return date;
+	return [[date copy] autorelease];
 }
 
 @end

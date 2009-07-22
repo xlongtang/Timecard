@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"Timecards";
-	week = [[WeekSelection alloc] init: [[NSDate alloc] init] end: [[NSDate alloc] init]];
+	week = [[WeekSelection alloc] init: [NSDate date] end: [NSDate date]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +42,10 @@
 }
 
 - (void)dealloc {
+	table = nil;
+	toolbar = nil;
+	settingsButton = nil;
+	week = nil;
     [super dealloc];
 }
 

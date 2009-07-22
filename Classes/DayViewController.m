@@ -40,6 +40,8 @@
 }
 
 - (void)dealloc {
+	table = nil;
+	dayEntry = nil;
     [super dealloc];
 }
 
@@ -116,7 +118,7 @@
 			break;
 		case 2:
 			controller.title = @"Finish time";
-			if(dayEntry.end == nil) dayEntry.end = [[NSDate alloc] init];
+			if(dayEntry.end == nil) dayEntry.end = [NSDate date];
 			controller.mode=3;
 			break;
 		case 3:

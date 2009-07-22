@@ -51,4 +51,11 @@
 	return [weeks count];
 }
 
+- (void)dealloc {
+	start = nil; //Probable memory cleanup required test
+	end = nil; //Probable memory cleanup required test
+	weeks = nil; //Probable memory cleanup required test
+    [super dealloc];
+}
+
 @end

@@ -27,8 +27,8 @@
 -(id) initWithId: (long) aUid start: (NSDate*) startDate end: (NSDate*) endDate breakHours: (int) bHours breakMinutes:(int) bMinutes {
 	if (!(self = [super init])) return self;
 	
-	start = startDate;
-	end = endDate;
+	[self setStart: startDate];
+	[self setEnd: endDate];
 	uid = aUid;
 	breakHours = bHours;
 	breakMinutes = bMinutes;
@@ -42,14 +42,13 @@
 	if (!(self = [super init])) return self;
 
 	uid = 0;
-	start = startDate;
-	end = endDate;
+	[self setStart: startDate];
+	[self setEnd: endDate];
 	breakHours = bHours;
 	breakMinutes = bMinutes;
 	changed = NO;
 
 	return self;
-	
 }
 
 -(int) uid {
@@ -91,15 +90,18 @@
 	changed = status;
 }
 
-
 -(NSString*) dayOfWeek {
+	if(start == nil) return @"";
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"EEEE"];
-	return [formatter stringFromDate: start];
+	NSString* day =[formatter stringFromDate: start];
+	[formatter release];
+	return day;
 }
 
 -(NSString*) label {
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	if(start == nil) return @"";
+	NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
 	[formatter setDateFormat:@"MMMM d"];
 	return [formatter stringFromDate: start];
 }
@@ -107,10 +109,12 @@
 
 -(void) setStart: (NSDate*) date {
 	changed = YES;
+	[start release];
 	if(date!=nil)
 		date = [DateHelper removeSeconds: date];
 	if(end==nil || date==nil) {
 		start = date;
+		[start retain];
 		return;
 	}
 	NSCalendar *cal = [NSCalendar currentCalendar];
@@ -124,6 +128,7 @@
 		start = [[cal dateByAddingComponents:parts toDate:date options:0] retain];
 	} else {
 		start = date;
+		[start retain];
 	}
 	
 }
@@ -134,6 +139,7 @@
 		date = [DateHelper removeSeconds: date];
 	if(start==nil || date==nil) {
 		end = date;
+		[end retain];
 		return;
 	}
 	NSCalendar *cal = [NSCalendar currentCalendar];
@@ -147,40 +153,46 @@
 		end = [[cal dateByAddingComponents:parts toDate:date options:0] retain];
 	} else {
 		end = date;
+		[end retain];
 	}
 }
 
 -(NSString*) startDate {
 	if(start==nil) return @"";	
-
 	NSDateFormatter *localDate = [[NSDateFormatter alloc] init];
 	//[localDate setDateFormat:@"yyyy-MM-dd"];
 	[localDate setDateStyle: NSDateFormatterFullStyle];
-	return [localDate stringFromDate: start];	
+	NSString* result = [localDate stringFromDate: start];
+	[localDate release];
+	return result;
 }
 
 -(NSString*) startTime {
-	if(start==nil) return @"";	
-
+	if(start==nil) return @"";
 	NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
 	//[localTime setDateFormat:@"HH:mm"];
 	[localTime setTimeStyle: NSDateFormatterShortStyle];
-	return [localTime stringFromDate: start];
+	NSString* result = [localTime stringFromDate: start];
+	[localTime release];
+	return result;
 }
 
 -(NSString*) endTime {
     if(end==nil) return @"";
-	
     NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
     [localTime setTimeStyle: NSDateFormatterShortStyle];
-    return [localTime stringFromDate: end];
+	NSString* result = [localTime stringFromDate: end];
+	[localTime release];
+    return result;
 }
 
 -(NSString*) dayString {
 	if(end==nil) return @"";	
 	NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
 	[localTime setDateStyle: NSDateFormatterShortStyle];
-	return [localTime stringFromDate: end];
+	NSString* result =[localTime stringFromDate: end];
+	[localTime release];
+	return result;
 }
 
 -(double) hours {
@@ -217,6 +229,12 @@
 	unsigned int unitFlags =  NSMonthCalendarUnit;
 	NSDateComponents *components = [currentCalendar components:unitFlags fromDate:start];
 	return [components month];	
+}
+
+- (void)dealloc {
+	start = nil; //Probable memory cleanup required test
+	end = nil; //Probable memory cleanup required test
+    [super dealloc];
 }
 
 @end
