@@ -14,7 +14,7 @@
 @synthesize label, value;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
-	
+
 	if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
 		UIView *myContentView = self.contentView;
 

@@ -9,25 +9,11 @@
 #import "SettingsViewController.h"
 #import "SettingInfo.h"
 #import "SettingTableViewCell.h"
+#import "DateHelper.h"
 
 @implementation SettingsViewController
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
+@synthesize table;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -54,13 +40,25 @@
 	setting.type = 4;
 	setting.doubleValue = [[[TimeEntries instance] getPreference: @"overtime rate"] doubleValue];
 	[settings addObject: setting];
-
+	
 	setting = [[SettingInfo alloc] init];
 	setting.label = @"overtime start";
 	setting.type = 4;
 	setting.doubleValue = [[[TimeEntries instance] getPreference: @"overtime start"] doubleValue];
 	[settings addObject: setting];
 	
+	setting = [[SettingInfo alloc] init];
+	setting.label = @"break time";
+	setting.type = 5;
+	setting.timerValue = [[[TimeEntries instance] getPreference: @"break time"] intValue];
+	[settings addObject: setting];
+	//[DateHelper hourStringLong: [dayEntry breakTime]]
+	
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	[table reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +73,6 @@
 	// e.g. self.myOutlet = nil;
 }
 
-
 - (void)dealloc {
 	settings = nil;
 	table = nil;
@@ -88,7 +85,6 @@
     return 1;
 }
 
-
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return [settings count];
@@ -96,24 +92,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {	
 	SettingInfo* setting = [settings objectAtIndex: [indexPath row]];
-	SettingTableViewCell* cell = [[[SettingTableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"settingcell" setting: setting] autorelease];
-	
-	//cell.label.text = setting.label;
-	//cell.value.text = @"...";
-	//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	//cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	
+	SettingTableViewCell* cell = [[[SettingTableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:setting.label setting: setting] autorelease];
     return cell;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//NSLog(@"day item selected");
 	SettingInfo* setting = [settings objectAtIndex: [indexPath row]];
 	if(setting.type == 4 || setting.type == 2) {
 		SettingTableViewCell* cell = (SettingTableViewCell*)[tableView cellForRowAtIndexPath: indexPath];
 		[cell.textField becomeFirstResponder];
 	}
+	if(setting.type == 5)
+		return indexPath;
 	return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	SettingInfo* setting = [settings objectAtIndex: [indexPath row]];
+	if(setting.type ==5) {
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+		TimerViewController *controller = [[TimerViewController alloc] initWithNibName:@"SettingsTimerView" bundle:nil];
+		controller.setting = setting;
+		[self.navigationController pushViewController:controller animated: YES];
+		[controller release];		
+	}
 }
 
 @end

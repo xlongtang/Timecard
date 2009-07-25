@@ -38,11 +38,17 @@
 			break;
 		case 2:
 			datePicker.datePickerMode = UIDatePickerModeTime;
-			if([dayEntry start]!=nil) datePicker.date=[dayEntry start];
+			if([dayEntry start]!=nil)
+				datePicker.date=[dayEntry start];
+			else
+				datePicker.date = [NSDate date];
 			break;
 		case 3:
 			datePicker.datePickerMode = UIDatePickerModeTime;
-			if([dayEntry end]!=nil) datePicker.date=[dayEntry end];
+			if([dayEntry end]!=nil)
+				datePicker.date=[dayEntry end];
+			else
+				datePicker.date = [NSDate date];
 			break;
 		case 4:
 			datePicker.datePickerMode = UIDatePickerModeCountDownTimer;

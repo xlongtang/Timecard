@@ -16,10 +16,12 @@
 	NSString* stringValue;
 	bool boolValue;
 	double doubleValue;
+	int timerValue;
 }
 
 @property (retain) NSString* label;
 @property int type;
+@property int timerValue;
 @property (retain) NSString* stringValue;
 @property (retain) NSDate* dateValue;
 @property bool boolValue;

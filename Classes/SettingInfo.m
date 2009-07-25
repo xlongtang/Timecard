@@ -11,6 +11,6 @@
 
 @implementation SettingInfo
 
-@synthesize label, type, boolValue, stringValue, dateValue, doubleValue;
+@synthesize label, type, boolValue, stringValue, dateValue, doubleValue, timerValue;
 
 @end

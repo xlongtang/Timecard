@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TimerViewController.h"
 
 @interface SettingsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource> {
 	IBOutlet UITableView* table;
 	NSMutableArray* settings;
 }
+
+@property (retain) UITableView* table;
 
 
 @end

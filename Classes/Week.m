@@ -69,10 +69,11 @@
 
 -(DayEntry*) day: (int) day {
 	if(dayEntries[day]==nil) {
-		DayEntry* entry = [[DayEntry alloc] initWithStart: [DateHelper addDay: start days: day]
-													  end: nil
-											   breakHours: 1
-											 breakMinutes: 0];
+		int breakSeconds = [[[TimeEntries instance] getPreference: @"break time"] intValue];
+		int breakHours = breakSeconds/3600;
+		DayEntry* entry = [[DayEntry alloc] initWithDate: [DateHelper addDay: start days: day]
+											   breakHours: breakHours
+											 breakMinutes: (breakSeconds-(breakHours*3600))/60];
 		dayEntries[day] = entry;
 	}
 	return dayEntries[day];

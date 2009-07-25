@@ -46,8 +46,6 @@
     return 2;
 }
 
-
-// Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section==0)
 		return [week dayCount];
@@ -55,8 +53,6 @@
 		return 1;
 }
 
-
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"WeekTableViewCell";
     WeekTableViewCell* cell = (WeekTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];

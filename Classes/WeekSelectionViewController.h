@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "WeekSelection.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface WeekSelectionViewController : UIViewController<UITableViewDelegate,UITableViewDataSource> {
+@interface WeekSelectionViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate> {
 	IBOutlet UITableView* table;
 	IBOutlet UIToolbar* toolbar;
 	WeekSelection* week;
@@ -21,5 +23,6 @@
 @property (retain) UIBarButtonItem* settingsButton;
 
 - (IBAction)doSettings:(id)sender;
+- (IBAction)displayComposerSheet:(id) sender;
 
 @end

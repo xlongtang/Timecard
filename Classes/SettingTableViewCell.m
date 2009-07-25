@@ -7,11 +7,11 @@
 //
 
 #import "SettingTableViewCell.h"
-
+#import "DateHelper.h"
 
 @implementation SettingTableViewCell
 
-@synthesize setting, label, value, textField, switchField;
+@synthesize setting, label, value, textField, switchField, timerField;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier setting:(SettingInfo*) aSetting {
 
@@ -28,7 +28,7 @@
 			self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;	// has a clear 'x' button to the right
 			[myContentView addSubview:self.textField];
 			[self.textField release];
-		} else if(setting.type == 3) {
+		} else if(setting.type == 3) { // 3=Boolean yes/no field
 			self.switchField = [[UISwitch alloc] initWithFrame:CGRectZero];
 			self.switchField.on = setting.boolValue;
 			[self.switchField addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
@@ -41,6 +41,13 @@
 			self.textField.returnKeyType = UIReturnKeyDone;
 			[myContentView addSubview:self.textField];
 			[self.textField release];
+		} else if(setting.type == 5) { // 5=Timer countdown value
+			self.timerField = [self newLabelWithPrimaryColor: [UIColor blackColor] selectedColor:[UIColor whiteColor] fontSize:16.0 bold:NO];
+			self.timerField.text = [DateHelper hourStringLong: setting.timerValue/3600.0];
+			[self setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
+			[self setEditingAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
+			[myContentView addSubview:self.timerField];
+			[self.timerField release];
 		} else {
 			self.value = [[UITextField alloc] initWithFrame:CGRectZero];
 			self.value.text = @"...";
@@ -50,18 +57,18 @@
 		}
 
 		UIColor *color = [UIColor colorWithRed: 6.0/16.0 green: 8.0/16.0 blue: 10.0/16.0 alpha:1];
-        self.label = [self newLabelWithPrimaryColor: color selectedColor:[UIColor whiteColor] fontSize:13.0 bold:YES];
+		self.label = [self newLabelWithPrimaryColor: color selectedColor:[UIColor whiteColor] fontSize:13.0 bold:YES];
 		self.label.textAlignment = UITextAlignmentRight; // default
 		self.label.text = setting.label;
 		[myContentView addSubview:self.label];
 		[self.label release];
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-    CGRect contentRect = self.contentView.bounds;
+	CGRect contentRect = self.contentView.bounds;
 
 	CGFloat leftStart = contentRect.origin.x+8;
 	CGFloat titleWidth = contentRect.size.width - 8 - leftStart;
@@ -75,7 +82,10 @@
 	CGRect frame = CGRectMake(leftStart, 16, distanceWidth, 14);
 	self.label.frame = frame;
 
-	if(setting.type == 4) {
+	if(setting.type == 5) {
+		frame = CGRectMake(leftStart+distanceWidth+9, 11, titleWidth - distanceWidth - 4 , 22);
+		self.timerField.frame = frame;
+	} else if(setting.type == 4) {
 		frame = CGRectMake(leftStart+distanceWidth+9, 11, titleWidth - distanceWidth - 4 , 22);
 		self.textField.frame = frame;
 	} else if(setting.type == 3) {
@@ -91,15 +101,13 @@
 
 }
 
-- (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold
-{
-	
-    UIFont *font;
-    if (bold) {
-        font = [UIFont boldSystemFontOfSize:fontSize];
-    } else {
-        font = [UIFont systemFontOfSize:fontSize];
-    }
+- (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold {
+	UIFont *font;
+	if (bold) {
+		font = [UIFont boldSystemFontOfSize:fontSize];
+	} else {
+		font = [UIFont systemFontOfSize:fontSize];
+	}
 	
 	UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 	//newLabel.backgroundColor = [UIColor greenColor];
@@ -111,12 +119,12 @@
 	return newLabel;
 }
 
-
 - (void)dealloc {
 	label = nil;
 	value = nil;
 	textField = nil;
 	switchField = nil;
+	timerField = nil;
 	setting = nil;
 	[super dealloc];
 }

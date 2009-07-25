@@ -11,6 +11,7 @@
 #import "SelectionTableViewCell.h"
 #import "SettingsViewController.h"
 #import "DateHelper.h"
+#import "TimecardExport.h"
 
 @implementation WeekSelectionViewController
 
@@ -24,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"Timecards";
-	week = [[WeekSelection alloc] init: [NSDate date] end: [NSDate date]];
+	week = [[WeekSelection alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,8 +38,7 @@
 	// e.g. self.myOutlet = nil;
 }
 
--(void) viewWillDissapear {
-	
+- (void) viewWillDissapear {	
 }
 
 - (void)dealloc {
@@ -58,6 +58,54 @@
 	
 }
 
+// Displays an email composition interface inside the application. Populates all the Mail fields. 
+- (void)displayComposerSheet : (id) sender {
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = self;
+    
+    [picker setSubject:@"Timecard details"];
+    
+    // Attach the timecard data as a text file
+	NSMutableData* myData = [[NSMutableData alloc] init];
+	char bom[3]={0xEF,0xBB,0xBF};  //Prepend the text file with a "BOM" indicating its UTF-8 encoded.
+	[myData appendBytes:bom length:3];	
+	[myData appendData: [[TimecardExport string] dataUsingEncoding: NSUTF8StringEncoding]];
+    [picker addAttachmentData:myData mimeType:@"text/plain" fileName:@"Timecard Data.txt"];
+    [myData release];
+
+    // Fill out the email body text
+    NSString *emailBody = @"Below are my most recent time cards.";
+    [picker setMessageBody:emailBody isHTML:NO];
+    
+    [self presentModalViewController:picker animated:YES];
+    [picker release];
+}
+
+// Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {    
+    //message.hidden = NO;
+    // Notifies users about errors associated with the interface
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Result: canceled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Result: saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Result: sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Result: failed");
+            break;
+        default:
+            NSLog(@"Result: not sent");
+            break;
+    }
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -65,7 +113,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [week weekCount];
+    return week.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,7 +132,7 @@
     return cell;
 }
 
- - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   WeekViewController *weekViewController = [[WeekViewController alloc] initWithNibName:@"WeekView" bundle:nil];
   weekViewController.week = [week week: [indexPath row]];
   [weekViewController.week loadDays];
@@ -92,32 +140,5 @@
   [self.navigationController pushViewController:weekViewController animated:YES];
   [weekViewController release];
 }
-
-
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- 
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source.
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
- }   
- }
- */
-
-
 
 @end

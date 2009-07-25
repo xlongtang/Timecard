@@ -12,17 +12,17 @@
 
 @implementation WeekSelection
 
--(id)init: (NSDate*) startDate end: (NSDate*) endDate {
+-(id)init {
 	if (!(self = [super init])) return self;
 
 	// Work out start week
-	start = [DateHelper backToSunday: startDate];
+	start = [DateHelper backToSunday: [NSDate date]];
 	NSDate* dbStart = [[TimeEntries instance] getFirstWeek];
 	if(dbStart != nil)
 		start = [start earlierDate: dbStart];
 
 	// Work out end week
-	end = [DateHelper addWeek: [DateHelper backToSunday: endDate]];
+	end = [DateHelper addWeek: [DateHelper backToSunday: [NSDate date]]];
 	NSDate* dbEnd = [[TimeEntries instance] getLastWeek];
 	if(dbEnd != nil)
 		end = [end laterDate: dbEnd];
@@ -47,7 +47,7 @@
 	return [weeks objectAtIndex: weekNumber];
 }
 
--(int) weekCount {
+-(int) count {
 	return [weeks count];
 }
 

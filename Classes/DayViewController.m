@@ -20,13 +20,6 @@
 	[self.table reloadData];
 }
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
-
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -50,7 +43,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
-
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -95,16 +87,17 @@
 			cell.value.text = [DateHelper hourStringLong: [dayEntry breakTime]];
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+			//UIView *backView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+			//backView.backgroundColor = [UIColor clearColor];
+			//cell.backgroundView = backView;
 			break;
+		}
 	}
-}
 	
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//NSLog(@"day item selected");
-	
 	DatePickerController *controller = [[DatePickerController alloc] initWithNibName:@"DatePicker" bundle:nil];
 	controller.dayEntry = dayEntry;
 	switch([indexPath row]) {
@@ -118,7 +111,6 @@
 			break;
 		case 2:
 			controller.title = @"Finish time";
-			if(dayEntry.end == nil) dayEntry.end = [NSDate date];
 			controller.mode=3;
 			break;
 		case 3:

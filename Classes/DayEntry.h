@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface DayEntry : NSObject {
 	int uid;
 	NSDate *start;
@@ -16,6 +15,7 @@
 	int breakHours;
 	int breakMinutes;
 	bool changed;
+	NSDate *theDate;
 }
 
 -(int) uid;
@@ -25,12 +25,13 @@
 -(int) breakMinutes;
 -(bool) changed;
 
+-(void) setDate: (NSDate*) date;
 -(void) setChanged: (bool) status;
 -(void) setBreakHours: (int) value;
 -(void) setBreakMinutes: (int) value;
 	
 -(id) initWithId: (long) aUid start: (NSDate*) startDate end: (NSDate*) endDate breakHours: (int) bHours breakMinutes:(int) bMinutes;
--(id) initWithStart: (NSDate*) startDate end: (NSDate*) endDate breakHours: (int) bHours breakMinutes:(int) bMinutes;
+-(id) initWithDate: (NSDate*) aDate breakHours: (int) bHours breakMinutes:(int) bMinutes;
 -(void) updateUid: (int) newUid;
 
 -(double) hours;

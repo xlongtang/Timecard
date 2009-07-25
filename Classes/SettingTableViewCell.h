@@ -15,6 +15,7 @@
 	UILabel* value;
 	UITextField* textField;
 	UISwitch* switchField;
+	UILabel* timerField;
 	SettingInfo* setting;
 }
 
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) UILabel *value;
 @property (nonatomic, retain) UITextField *textField;
 @property (nonatomic, retain) UISwitch *switchField;
+@property (nonatomic, retain) UILabel *timerField;
 @property (nonatomic, retain) SettingInfo* setting;
 
 @end

@@ -15,8 +15,8 @@
 	NSMutableArray* weeks;
 }
 
--(id)init: (NSDate*) startDate end: (NSDate*) endDate;
--(int) weekCount;
+-(id)init;
+-(int) count;
 -(Week*) week: (int) week;
 
 @end
