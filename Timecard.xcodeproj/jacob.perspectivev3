@@ -270,9 +270,6 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>16EE32E4101AB02500FAFABF</string>
-								<string>1687B10E1009ACE0009EA9FB</string>
-								<string>161ED9C310075C1E00B7334C</string>
-								<string>161ED8E41007466D00B7334C</string>
 								<string>161ED8E31007465B00B7334C</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
@@ -281,14 +278,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>21</integer>
-									<integer>19</integer>
+									<integer>18</integer>
+									<integer>14</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 52}, {185, 562}}</string>
+							<string>{{0, 0}, {185, 562}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -323,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>161ED7A7100732C100B7334C</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>DatePickerController.m</string>
+								<string>TimeEntries.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -331,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>161ED7A8100732C100B7334C</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>DatePickerController.m</string>
+										<string>TimeEntries.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>1683323C101AE9D000CF5D73</string>
+										<string>168332A0101B0CB500CF5D73</string>
 										<key>history</key>
 										<array>
 											<string>161EDC2210083ED500B7334C</string>
@@ -354,13 +351,11 @@
 											<string>16EE333A101ACD1B00FAFABF</string>
 											<string>16EE3366101AD1DE00FAFABF</string>
 											<string>16EE3369101AD1DE00FAFABF</string>
-											<string>16EE33C4101AD39700FAFABF</string>
 											<string>16EE33FE101AD5AA00FAFABF</string>
 											<string>16EE341D101AD62900FAFABF</string>
 											<string>16EE341E101AD62900FAFABF</string>
 											<string>16EE3442101AD72700FAFABF</string>
 											<string>16EE3444101AD72700FAFABF</string>
-											<string>16EE3445101AD72700FAFABF</string>
 											<string>16EE3446101AD72700FAFABF</string>
 											<string>16833117101AD97500CF5D73</string>
 											<string>16833119101AD97500CF5D73</string>
@@ -370,13 +365,15 @@
 											<string>1683317A101AE0A900CF5D73</string>
 											<string>1683319B101AE1DE00CF5D73</string>
 											<string>1683321C101AE79F00CF5D73</string>
-											<string>1683321D101AE79F00CF5D73</string>
-											<string>1683322C101AE85300CF5D73</string>
-											<string>16833233101AE9D000CF5D73</string>
 											<string>16833234101AE9D000CF5D73</string>
 											<string>16833235101AE9D000CF5D73</string>
 											<string>16833236101AE9D000CF5D73</string>
-											<string>16833237101AE9D000CF5D73</string>
+											<string>16833249101AEE0200CF5D73</string>
+											<string>16833275101AF5C500CF5D73</string>
+											<string>16833277101AF5C500CF5D73</string>
+											<string>16833290101AF69C00CF5D73</string>
+											<string>1683329D101B0CB500CF5D73</string>
+											<string>1683329E101B0CB500CF5D73</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -485,6 +482,20 @@
 											<string>16833239101AE9D000CF5D73</string>
 											<string>1683323A101AE9D000CF5D73</string>
 											<string>1683323B101AE9D000CF5D73</string>
+											<string>1683324B101AEE0200CF5D73</string>
+											<string>16833267101AF2D200CF5D73</string>
+											<string>16833279101AF5C500CF5D73</string>
+											<string>1683327A101AF5C500CF5D73</string>
+											<string>1683327B101AF5C500CF5D73</string>
+											<string>1683327C101AF5C500CF5D73</string>
+											<string>1683327D101AF5C500CF5D73</string>
+											<string>1683327E101AF5C500CF5D73</string>
+											<string>1683327F101AF5C500CF5D73</string>
+											<string>16833280101AF5C500CF5D73</string>
+											<string>1683328D101AF69100CF5D73</string>
+											<string>16833292101AF69C00CF5D73</string>
+											<string>16833299101B0C4300CF5D73</string>
+											<string>1683329F101B0CB500CF5D73</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -795,6 +806,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1683329B101B0C4300CF5D73</string>
 		<string>1683310B101AD82100CF5D73</string>
 		<string>1683310C101AD82100CF5D73</string>
 		<string>/Users/jacob/Documents/cocoa/Timecard/Timecard.xcodeproj</string>

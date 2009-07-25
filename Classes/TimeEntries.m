@@ -113,7 +113,6 @@ static TimeEntries* timentries_instance = nil;
 	NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
 	[localTime setDateStyle: NSDateFormatterShortStyle];
 	NSString* dateString = [localTime stringFromDate: date];
-	[localTime release];
 
     static char *sql = "select id,day,start,end,break_hours,break_minutes from time_entry where day=?";
     if (sqlite3_prepare_v2(database, sql, -1, &loadEntry, NULL) != SQLITE_OK) {
@@ -123,15 +122,27 @@ static TimeEntries* timentries_instance = nil;
 
 	DayEntry* entry = nil;
     if(sqlite3_step(loadEntry) == SQLITE_ROW) {
+		int start = sqlite3_column_int(loadEntry, 2);
+		int end = sqlite3_column_int(loadEntry, 3);
+		NSDate* startDate = nil;
+		NSDate* endDate = nil;
+		if(start!=0)
+			startDate = [[NSDate dateWithTimeIntervalSince1970: start] retain];
+		if(end!=0)
+			endDate = [[NSDate dateWithTimeIntervalSince1970: end] retain];
+		NSDate* date = [localTime dateFromString: [NSString stringWithUTF8String:(char *)sqlite3_column_text(loadEntry, 1)]];
+
         entry = [[DayEntry alloc] initWithId: sqlite3_column_int(loadEntry, 0)
-									   start: [NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(loadEntry, 2)]
-										 end: [NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(loadEntry, 3)]
+									    date: date
+									   start: startDate
+										 end: endDate
 								  breakHours: sqlite3_column_int(loadEntry, 4)
 								breakMinutes: sqlite3_column_int(loadEntry, 5)];
     }
 	
     // Because we want to reuse the statement, we "reset" it instead of "finalizing" it.
     sqlite3_reset(loadEntry);
+	[localTime release];
 	
 	return entry;
 }
@@ -222,7 +233,9 @@ static TimeEntries* timentries_instance = nil;
 	NSMutableArray* entries = [[NSMutableArray alloc] init];
 
 	sqlite3_stmt *loadEntries = nil;
-	
+	NSDateFormatter *localTime = [[NSDateFormatter alloc] init];
+	[localTime setDateStyle: NSDateFormatterShortStyle];
+
     static char *sql = "select id,day,start,end,break_hours,break_minutes from time_entry order by start";
     if (sqlite3_prepare_v2(database, sql, -1, &loadEntries, NULL) != SQLITE_OK) {
         NSAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(database));
@@ -230,9 +243,19 @@ static TimeEntries* timentries_instance = nil;
 	
     while(sqlite3_step(loadEntries) == SQLITE_ROW) {
         DayEntry* entry = nil;
+		int start = sqlite3_column_int(loadEntries, 2);
+		int end = sqlite3_column_int(loadEntries, 3);
+		NSDate* startDate = nil;
+		NSDate* endDate = nil;
+		if(start!=0)
+			startDate = [[NSDate dateWithTimeIntervalSince1970: start] retain];
+		if(end!=0)
+			endDate = [[NSDate dateWithTimeIntervalSince1970: end] retain];
+		NSDate* date = [localTime dateFromString:  [NSString stringWithUTF8String:(char *)sqlite3_column_text(loadEntries, 1)]];
         entry = [[DayEntry alloc] initWithId: sqlite3_column_int(loadEntries, 0)
-									   start: [[NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(loadEntries, 2)] retain]
-										 end: [[NSDate dateWithTimeIntervalSince1970: sqlite3_column_int(loadEntries, 3)] retain]
+										date: date
+									   start: startDate
+										 end: endDate
 								  breakHours: sqlite3_column_int(loadEntries, 4)
 								breakMinutes: sqlite3_column_int(loadEntries, 5)];
         [entries addObject: [entry retain]];
@@ -240,7 +263,8 @@ static TimeEntries* timentries_instance = nil;
 
     // Because we want to reuse the statement, we "reset" it instead of "finalizing" it.
     sqlite3_reset(loadEntries);
-	
+	[localTime release];
+
 	return [entries autorelease];
 }
 
@@ -317,7 +341,6 @@ static TimeEntries* timentries_instance = nil;
     }
 		
 }
-
 
 -(void) updateEntry:(DayEntry*)entry {
     sqlite3_stmt *update_statement = nil;

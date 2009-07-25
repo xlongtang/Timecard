@@ -65,7 +65,10 @@
 		DayEntry* day = [week day: [indexPath row]];
 		cell.nameLabel.text = [day dayOfWeek]; 
 		cell.authorLabel.text = [day label];
-		cell.dateLabel.text = [DateHelper hourStringLong: [day hours]];
+		if([day hours] == 0)
+			cell.dateLabel.text = @"";
+		else
+			cell.dateLabel.text = [DateHelper hourStringLong: [day hours]];
 		[cell setTarget: self];
 		[cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
 		[cell setEditingAccessoryType: UITableViewCellAccessoryDisclosureIndicator];

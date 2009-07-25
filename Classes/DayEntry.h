@@ -30,7 +30,7 @@
 -(void) setBreakHours: (int) value;
 -(void) setBreakMinutes: (int) value;
 	
--(id) initWithId: (long) aUid start: (NSDate*) startDate end: (NSDate*) endDate breakHours: (int) bHours breakMinutes:(int) bMinutes;
+-(id) initWithId: (long) aUid date:(NSDate*)aDate start: (NSDate*) startDate end: (NSDate*) endDate breakHours: (int) bHours breakMinutes:(int) bMinutes;
 -(id) initWithDate: (NSDate*) aDate breakHours: (int) bHours breakMinutes:(int) bMinutes;
 -(void) updateUid: (int) newUid;
 

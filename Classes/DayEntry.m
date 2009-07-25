@@ -13,7 +13,7 @@
 
 -(id) init {
 	if (!(self = [super init])) return self;
-	
+
 	uid = 0;
 	theDate = nil;
 	start = nil;
@@ -25,10 +25,10 @@
 	return self;
 }
 
--(id) initWithId: (long) aUid start: (NSDate*) startDate end: (NSDate*) endDate breakHours: (int) bHours breakMinutes:(int) bMinutes {
+-(id) initWithId: (long) aUid date:(NSDate*) aDate start: (NSDate*) startDate end: (NSDate*) endDate breakHours: (int) bHours breakMinutes:(int) bMinutes {
 	if (!(self = [super init])) return self;
 	
-	[self setDate: nil];
+	[self setDate: aDate];
 	[self setStart: startDate];
 	[self setEnd: endDate];
 	uid = aUid;
@@ -110,66 +110,62 @@
 }
 
 -(void) setDate: (NSDate*) date {
-	[theDate release];
-	theDate = [date retain];
+	if(theDate != date) {
+		[theDate release];
+		theDate = [date retain];		
+	}
+	
+	if(theDate == nil && start !=nil)
+		theDate = [start retain];
+	if(theDate == nil && end !=nil)
+		theDate = [end retain];
+	
+	
+	// Check start and end dates are consistent with the date
+	NSCalendar *cal = [NSCalendar currentCalendar];
+	NSDateComponents *theParts = [cal components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit ) fromDate:theDate];
+	
+	if(start!=nil) {
+		NSDateComponents *startParts = [cal components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit ) fromDate:start];	
+		if(startParts.year!=theParts.year || startParts.month!=startParts.month || startParts.day!=theParts.day) {
+			[startParts setYear: theParts.year-startParts.year];
+			[startParts setMonth: theParts.month-startParts.month];
+			[startParts setDay: theParts.day-startParts.day];
+			[start autorelease];
+			start = [[cal dateByAddingComponents:startParts toDate:start options:0] retain];
+		}
+	}
+
+	if(end!=nil) {
+		NSDateComponents *endParts = [cal components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit ) fromDate:end];
+		if(endParts.year!=theParts.year || endParts.month!=endParts.month || endParts.day!=theParts.day) {
+			[endParts setYear: theParts.year-endParts.year];
+			[endParts setMonth: theParts.month-endParts.month];
+			[endParts setDay: theParts.day-endParts.day];
+			[end autorelease];
+			end = [[cal dateByAddingComponents:endParts toDate:end options:0] retain];
+		}
+	}
 }
 
 -(void) setStart: (NSDate*) date {
 	changed = YES;
-	[start release];
 	if(date!=nil)
 		date = [DateHelper removeSeconds: date];
-	if(end==nil || date==nil) {
-		start = date;
-		if(date!=nil)
-			[self setDate: date];
-		[start retain];
-		return;
-	}
-	NSCalendar *cal = [NSCalendar currentCalendar];
-	NSDateComponents *endParts = [cal components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit ) fromDate:end];
-	NSDateComponents *parts = [cal components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit ) fromDate:date];
-	
-	if(endParts.year!=parts.year || endParts.month!=parts.month || endParts.day!=parts.day) {
-		[parts setYear: endParts.year-parts.year];
-		[parts setMonth: endParts.month-parts.month];
-		[parts setDay: endParts.day-parts.day];
-		start = [[cal dateByAddingComponents:parts toDate:date options:0] retain];
-		[self setDate: start];
-	} else {
-		start = date;
-		[self setDate: start];
-		[start retain];
-	}
-	
+	[start release];
+	start = [date retain];
+	if(date!=nil)
+		[self setDate: theDate];
 }
 
 -(void) setEnd: (NSDate*) date {
 	changed = YES;
 	if(date!=nil)
 		date = [DateHelper removeSeconds: date];
-	if(start==nil || date==nil) {
-		end = date;
-		if(date!=nil)
-			[self setDate: date];
-		[end retain];
-		return;
-	}
-	NSCalendar *cal = [NSCalendar currentCalendar];
-	NSDateComponents *startParts = [cal components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit ) fromDate:start];
-	NSDateComponents *parts = [cal components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit ) fromDate:date];
-	
-	if(startParts.year!=parts.year || startParts.month!=parts.month || startParts.day!=parts.day) {
-		[parts setYear: startParts.year-parts.year];
-		[parts setMonth: startParts.month-parts.month];
-		[parts setDay: startParts.day-parts.day];
-		end = [[cal dateByAddingComponents:parts toDate:date options:0] retain];
-		[self setDate: end];
-	} else {
-		end = date;
-		[self setDate: end];
-		[end retain];
-	}
+	[end release];
+	end = [date retain];
+	if(date!=nil)
+		[self setDate: theDate];
 }
 
 -(NSString*) startDate {
