@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -13,12 +14,13 @@
    height="16px"
    id="svg2383"
    sodipodi:version="0.32"
-   inkscape:version="0.46"
-   inkscape:export-filename="/Users/jacob/Documents/cocoa/Timecard/timecardicon2.png"
-   inkscape:export-xdpi="360"
-   inkscape:export-ydpi="360"
+   inkscape:version="0.47pre4 r22446"
+   inkscape:export-filename="/Users/jacob/Documents/Timecard/icon.png"
+   inkscape:export-xdpi="320.62"
+   inkscape:export-ydpi="320.62"
    sodipodi:docname="timecardicon2.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.1">
   <defs
      id="defs2385">
     <linearGradient
@@ -120,7 +122,8 @@
      inkscape:window-width="1039"
      inkscape:window-height="713"
      inkscape:window-x="185"
-     inkscape:window-y="21" />
+     inkscape:window-y="21"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata2388">
     <rdf:RDF>
@@ -129,6 +132,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>

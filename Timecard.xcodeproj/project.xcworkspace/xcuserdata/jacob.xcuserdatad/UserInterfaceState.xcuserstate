@@ -818,9 +818,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>324686094.12105697</real>
+		<real>324686168.40310198</real>
 		<string>{0, 1847}</string>
-		<string>{358, 0}</string>
+		<string>{275, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3751,10 +3751,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>324686094.12243199</real>
+		<real>324686168.40517902</real>
 		<string>{0, 1847}</string>
-		<string>{358, 0}</string>
-		<string>-initWithFrame:reuseIdentifier:</string>
+		<string>{275, 0}</string>
+		<string>@implementation WeekTableViewCell</string>
 		<dict>
 			<key>$class</key>
 			<dict>
