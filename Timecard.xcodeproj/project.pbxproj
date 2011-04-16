@@ -29,7 +29,8 @@
 		1687B1141009ADC2009EA9FB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1687B1131009ADC2009EA9FB /* SettingsViewController.m */; };
 		1687B1171009AECA009EA9FB /* SettingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1687B1161009AECA009EA9FB /* SettingInfo.m */; };
 		1687B1881009B8B4009EA9FB /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1687B1871009B8B4009EA9FB /* SettingTableViewCell.m */; };
-		16CDF4AF100E01A3002B35C3 /* timeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 16CDF4AE100E01A3002B35C3 /* timeicon.png */; };
+		16B0184D135A4FA000FBB250 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16B0184C135A4FA000FBB250 /* icon@2x.png */; };
+		16B0184F135A4FD100FBB250 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 16B0184E135A4FD100FBB250 /* icon.png */; };
 		16EE325A101AA6F500FAFABF /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 16EE3259101AA6F500FAFABF /* settings.png */; };
 		16EE3287101AAA4800FAFABF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE3286101AAA4800FAFABF /* MessageUI.framework */; };
 		16EE32A5101AADC600FAFABF /* TimecardExport.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EE32A4101AADC600FAFABF /* TimecardExport.m */; };
@@ -83,7 +84,8 @@
 		1687B1161009AECA009EA9FB /* SettingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingInfo.m; sourceTree = "<group>"; };
 		1687B1861009B8B4009EA9FB /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingTableViewCell.h; path = Classes/SettingTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		1687B1871009B8B4009EA9FB /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingTableViewCell.m; path = Classes/SettingTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		16CDF4AE100E01A3002B35C3 /* timeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeicon.png; sourceTree = "<group>"; };
+		16B0184C135A4FA000FBB250 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		16B0184E135A4FD100FBB250 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		16EE3259101AA6F500FAFABF /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		16EE3286101AAA4800FAFABF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		16EE32A3101AADC600FAFABF /* TimecardExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimecardExport.h; sourceTree = "<group>"; };
@@ -231,6 +233,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				16B0184E135A4FD100FBB250 /* icon.png */,
+				16B0184C135A4FA000FBB250 /* icon@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -255,7 +259,6 @@
 				16EE332E101AC88200FAFABF /* timecardicon2.png */,
 				16EE331D101AC1C500FAFABF /* mail.png */,
 				16EE3259101AA6F500FAFABF /* settings.png */,
-				16CDF4AE100E01A3002B35C3 /* timeicon.png */,
 				161EDCE11008455200B7334C /* time.sqlite */,
 				161ED9C110075C1800B7334C /* DatePicker.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -308,6 +311,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Timecard" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -337,11 +341,12 @@
 				161ED9C210075C1800B7334C /* DatePicker.xib in Resources */,
 				161EDCE21008455200B7334C /* time.sqlite in Resources */,
 				1687B1101009AD49009EA9FB /* SettingsView.xib in Resources */,
-				16CDF4AF100E01A3002B35C3 /* timeicon.png in Resources */,
 				16EE325A101AA6F500FAFABF /* settings.png in Resources */,
 				16EE331E101AC1C500FAFABF /* mail.png in Resources */,
 				16EE332F101AC88200FAFABF /* timecardicon2.png in Resources */,
 				16EE335C101AD01600FAFABF /* SettingsTimerView.xib in Resources */,
+				16B0184D135A4FA000FBB250 /* icon@2x.png in Resources */,
+				16B0184F135A4FD100FBB250 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +392,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Timecard_Prefix.pch;
 				INFOPLIST_FILE = "Timecard-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Timecard;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -399,7 +407,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Timecard_Prefix.pch;
 				INFOPLIST_FILE = "Timecard-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Timecard;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
